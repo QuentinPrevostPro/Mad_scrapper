@@ -2,8 +2,6 @@ require 'nokogiri'
 require 'open-uri'
 require 'PRY'
 
-test = "http://annuaire-des-mairies.com/95/avernes.html"
-
 def get_city_hall_email(url)
     page = Nokogiri::HTML(open(url))
     city_name = page.xpath('/html/body/div/main/section[1]/div/div/div/h1')
@@ -13,11 +11,26 @@ def get_city_hall_email(url)
 end
 
 def get_city_hall_url
+    array_of_hashes = []
     page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/val-d-oise.html"))
     city_name = page.xpath('//p/a')
-    test = city_name[0]
-    binding.pry
+    (0..city_name.length-1).each do |index|
+        city_url = city_name[index]["href"].gsub(/\A\./, "http://annuaire-des-mairies.com")
+        city_hall_email = get_city_hall_email(city_url)
+        array_of_hashes << city_hall_email
+    end
+    return array_of_hashes    
 end
 
-get_city_hall_url
+def get_city_contact
+    array_of_hashes = []
+    page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/val-d-oise.html"))
+    city_name = page.xpath('//p/a')
+    (0..city_name.length-1).each do |index|
+        city_url = city_name[index]["href"].gsub(/\A\./, "http://annuaire-des-mairies.com")
+        city_hall_email = get_city_hall_email(city_url)
+        array_of_hashes << city_hall_email
+    end
+    return array_of_hashes 
+end
 
