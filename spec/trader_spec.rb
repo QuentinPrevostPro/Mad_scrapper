@@ -5,13 +5,16 @@ describe "The cryptocurrency scrapping method" do
        x = cryptocurrency_scrapping 
        expect(x).to be_instance_of Array
     end
- end
-
- describe "The cryptocurrency scrapping method" do
+    it "should have an array of min length 2109" do
+        x = cryptocurrency_scrapping 
+        expect(x.length).to be >= 2109
+    end
     it "should return a value for Bitcoin" do
-       expect(bitcoin_value(cryptocurrency_scrapping)).to be === 1 
-    end
-    it "should return a value for Ethereum" do
-        expect(ethereum_value(cryptocurrency_scrapping)).to be === 2 
-    end
+        x = cryptocurrency_scrapping 
+        expect(x.detect { |hash| hash.has_key?(:BTC) }[:BTC].to_f).to be > 0 
+     end
+     it "should return a value for Ethereum" do
+        x = cryptocurrency_scrapping 
+        expect(x.detect { |hash| hash.has_key?(:ETH) }[:ETH].to_f).to be > 0 
+     end
  end

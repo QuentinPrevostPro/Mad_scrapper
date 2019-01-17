@@ -18,5 +18,3 @@ def get_representative_contact
     end
     return array_of_hashes
 end
-
-get_representative_contact

@@ -21,5 +21,3 @@ def get_city_hall_url
     end
     return array_of_hashes    
 end
-
-get_city_hall_url
