@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'PRY'
 
 def cryptocurrency_scrapping
     array_of_hashes = []
