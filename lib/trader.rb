@@ -14,7 +14,7 @@ def cryptocurrency_scrapping
     return array_of_hashes
 end
 
-# Méthode pour utiliser pour tester si le scrapping du Bitcoin et de l'Ethereum a marché
+# Méthodes pour tester si le scrapping du Bitcoin et de l'Ethereum a marché
 def bitcoin_value(array)
     test_btc = 0
     array.each do |hash|
@@ -30,5 +30,3 @@ def ethereum_value(array)
     end
     return test_eth
 end
-
-cryptocurrency_scrapping

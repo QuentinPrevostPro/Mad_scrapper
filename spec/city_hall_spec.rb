@@ -9,7 +9,7 @@ describe "The city hall email scrapping method" do
 
  describe "The city contact contact method" do
     it "should return an array" do
-        x = get_city_contact
-       expect(get_city_contact).to be_instance_of Array
+        x = get_city_hall_url
+       expect(get_city_hall_url).to be_instance_of Array
     end
  end

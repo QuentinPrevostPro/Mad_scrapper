@@ -14,23 +14,12 @@ def get_city_hall_url
     array_of_hashes = []
     page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/val-d-oise.html"))
     city_name = page.xpath('//p/a')
-    (0..city_name.length-1).each do |index|
-        city_url = city_name[index]["href"].gsub(/\A\./, "http://annuaire-des-mairies.com")
+    city_name.each do |city_name|
+        city_url = city_name["href"].gsub(/\A\./, "http://annuaire-des-mairies.com")
         city_hall_email = get_city_hall_email(city_url)
         array_of_hashes << city_hall_email
     end
     return array_of_hashes    
 end
 
-def get_city_contact
-    array_of_hashes = []
-    page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/val-d-oise.html"))
-    city_name = page.xpath('//p/a')
-    (0..city_name.length-1).each do |index|
-        city_url = city_name[index]["href"].gsub(/\A\./, "http://annuaire-des-mairies.com")
-        city_hall_email = get_city_hall_email(city_url)
-        array_of_hashes << city_hall_email
-    end
-    return array_of_hashes 
-end
-
+get_city_hall_url
