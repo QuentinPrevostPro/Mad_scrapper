@@ -11,5 +11,7 @@ def cryptocurrency_scrapping
         temp_hash = {"#{currency[index].text}": "#{value[index].text.gsub(/[\s$]*/, "")}"}
         array_of_hashes << temp_hash
     end
-     return array_of_hashes
+     puts array_of_hashes
 end
+
+cryptocurrency_scrapping

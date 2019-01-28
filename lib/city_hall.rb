@@ -19,5 +19,8 @@ def get_city_hall_url
         city_hall_email = get_city_hall_email(city_url)
         array_of_hashes << city_hall_email
     end
+    puts array_of_hashes
     return array_of_hashes    
 end
+
+get_city_hall_url
